@@ -1,0 +1,7 @@
+name: dragon_slaying
+ritual: "light candle"
+energy_cost: 5
+boundaries:
+  inbox_pause: true
+  coffee_brewed: false
+duration_minutes: 90
