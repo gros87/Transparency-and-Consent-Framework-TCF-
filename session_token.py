@@ -26,13 +26,6 @@ class SessionToken:
         if self.child_tokens is None:
             self.child_tokens = []
 
-    def check_boundaries(self, current_state: Dict[str, bool]) -> bool:
-        """Check if current state complies with token boundaries."""
-        for boundary, required in self.boundaries.items():
-            if required and not current_state.get(boundary, False):
-                return False
-        return True
-
     def to_yaml(self) -> str:
         """Serialize the token to YAML."""
         # Convert dataclass to dictionary for serialization
@@ -51,7 +44,3 @@ class SessionToken:
 
     def remove_child(self, child_id: str):
         self.child_session_ids.remove(child_id)
-
-    def check_duration_boundary(self, current_duration: int) -> bool:
-        """Check if session duration boundaries are respected"""
-        return current_duration <= self.duration_minutes
